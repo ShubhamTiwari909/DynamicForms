@@ -1,31 +1,60 @@
-import React from 'react'
-import Logo from './image/logo2.jpeg'
-import './Navbar.css'
-function Navbar() {
-    
+import React from "react";
+import { GiHamburgerMenu } from 'react-icons/gi'
+import {NavLink } from 'react-router-dom'
 
-    return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark pb-10">
-                <div className="container-fluid">
-                    <a href="#" className="navbar-brand">
-                        <img src={Logo} className="Logo" alt="CoolBrand" />
-                    </a>
-                    <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="md:ml-10 collapse navbar-collapse" id="navbarCollapse">
-                        <div className="navbar-nav">
-                            <a href="#Home" className="nav-item nav-link active">Home</a>
-                            <a href="#Faculty" className="nav-item nav-link">Faculty</a>
-                            <a href="#Contact" className="nav-item nav-link">Contact</a>
-                            <a href="#About" className="nav-item nav-link" tabindex="-1">About</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+export default function Navbar() {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  
+  return (
+    <>
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-3">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <div
+              className="grid grid-cols-2 place-items-center lg:text-xl font-bold leading-relaxed mr-4 py-2 whitespace-nowrap text-white"
+            >
+              Dynamic Forms
+            </div>
+            <button
+              className="text-slate-900 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-slate-100 block lg:hidden outline-none focus:outline-none"
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+            >
+              <GiHamburgerMenu size="1.5rem" />
+            </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center" +
+              (navbarOpen ? " flex" : " hidden")
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  <NavLink to="/" onClick={() => setNavbarOpen(!navbarOpen)}>Home</NavLink>
+                </p>
+              </li>
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  <NavLink to="/form" onClick={() => setNavbarOpen(!navbarOpen)}>Forms</NavLink>
+                </p>
+              </li>
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  <NavLink to="/signup" onClick={() => setNavbarOpen(!navbarOpen)}>Signup</NavLink>
+                </p>
+              </li>
+              <li className="nav-item">
+                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  <NavLink to="/signin" onClick={() => setNavbarOpen(!navbarOpen)}>Signin</NavLink>
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
-    )
+      </nav>
+    </>
+  );
 }
-
-export default Navbar
