@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import Zoom from 'react-reveal/Zoom';
 import './style.css'
 
 function Signup() {
@@ -64,7 +63,6 @@ function Signup() {
 
   return (
     <div className="grid place-content-center py-20 bg-slate-200 px-5">
-      <Zoom>
         <div className="flex space-x-6 justify-center mb-8">
           <h1 className="text-3xl font-bold">Signup</h1>
           <AiOutlineUserAdd size="2.5rem" color="darkslateblue" />
@@ -90,7 +88,6 @@ function Signup() {
             </div>
           </div>
         </form>
-      </Zoom>
     </div>
   )
 }

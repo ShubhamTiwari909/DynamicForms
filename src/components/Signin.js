@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaUserLock } from 'react-icons/fa'
-import Zoom from 'react-reveal/Zoom';
 import './style.css'
 
 function Signin() {
@@ -40,7 +39,6 @@ function Signin() {
 
   return (
     <div className="grid place-content-center py-20 bg-slate-200 px-5">
-      <Zoom>
         <div className="flex space-x-6 justify-center mb-8">
           <h1 className="text-3xl font-bold">Signin</h1>
           <FaUserLock size="2.5rem" color="darkslateblue" />
@@ -76,7 +74,6 @@ function Signin() {
             </div>
           </div>
         </form>
-      </Zoom>
     </div>
   )
 }

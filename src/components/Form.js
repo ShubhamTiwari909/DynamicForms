@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
-import Flip from 'react-reveal/Flip';
-import Fade from 'react-reveal/Fade';
 import './style.css'
 
 function Form() {
@@ -33,14 +31,12 @@ function Form() {
 
   return (
     <div className="grid place-content-center Home px-6 pt-32">
-      <Fade bottom>
         <form className="bg-slate-800 p-5" onSubmit={submit}>
           <div className="h-96 md:h-64 overflow-auto customScrollbar">
             {inputField.length === 0 ? <div className="text-slate-100 text-center text-2xl">No input fields please add inputs fields</div>
               :
               inputField.map((input, index) => {
                 return (
-                  <Flip left key={index} >
                     <div className="my-2 md:my-10">
                       <h1 className="text-indigo-200 text-2xl text-center">Enter new user details</h1>
                       <div className="md:flex md:space-x-4 my-5">
@@ -68,7 +64,6 @@ function Form() {
                         </div>
                       </div>
                     </div>
-                  </Flip>
                 )
               })}
           </div>
@@ -101,7 +96,6 @@ function Form() {
               })}
           </div>
         </div>
-      </Fade>
     </div>
   )
 }
