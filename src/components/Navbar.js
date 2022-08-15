@@ -7,7 +7,7 @@ export default function Navbar() {
   
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-3">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div
@@ -25,7 +25,7 @@ export default function Navbar() {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
+              "lg:flex flex-grow items-center justify-center" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"

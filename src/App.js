@@ -6,6 +6,7 @@ import Form from './components/Form'
 import Signup from './components/Signup'
 import Signin from './components/Signin'
 import ForgotPassword from './components/ForgotPassword'
+import Footer from './components/Footer'
 function App() {
   return (
     <div className="">
@@ -15,8 +16,9 @@ function App() {
         <Route exact path="/form" element={<Form />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/signin" element={<Signin />} />
-        <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+        <Route exact path="/changePassword" element={<ForgotPassword />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
