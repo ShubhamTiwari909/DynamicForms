@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaUserLock } from 'react-icons/fa'
+import { HiOutlineMail } from 'react-icons/hi'
 import './style.css'
 
 function Signin() {
@@ -21,7 +22,7 @@ function Signin() {
 
     const inputFieldAttributes = [
         {
-            label: "Email",
+            label: <HiOutlineMail size="1.5rem" />,
             name: "email",
             type: "email",
             value: signup.email,
@@ -38,7 +39,7 @@ function Signin() {
 
 
     return (
-        <div className="grid place-content-center py-20 bg-slate-200 px-5">
+        <div className="grid place-content-center py-20 bg-slate-200 px-3">
             <div className="flex space-x-6 justify-center mb-8">
                 <h1 className="text-3xl font-bold">Change Password</h1>
                 <FaUserLock size="2.5rem" color="darkslateblue" />
@@ -46,11 +47,11 @@ function Signin() {
             <form className="rounded-xl p-5 md:p-10 signupForm">
                 {inputFieldAttributes.map((inputs, index) => {
                     return (
-                        <div className="grid grid-cols-2 my-12 md:my-8 px-5" key={index}>
-                            <label className="text-slate-100 place-self-start my-1 w-20">{inputs.label}</label>
+                        <div className="grid grid-cols-4 md:grid-cols-2 my-12 md:my-8 px-1" key={index}>
+                            <label className="text-slate-100 place-self-center my-1 w-20">{inputs.label}</label>
                             <input name={inputs.name} type={inputs.type} placeholder={inputs.placeholder} value={inputs.value} onChange={handleChange}
                                 className="px-3 py-1 text-slate-100 bg-transparent border-b-2 border-b-indigo-100 focus:outline-none rounded-xl focus:bg-transparent caret-slate-100
-            justify-self-end w-44" />
+                                ml-10 md:ml-0 w-44" />
                         </div>
                     )
                 })}

@@ -30,29 +30,29 @@ function Form() {
   }
 
   return (
-    <div className="grid place-content-center Home px-6 pt-32">
-        <form className="bg-slate-800 p-5" onSubmit={submit}>
+    <div className="grid justify-center Home" style={{height: '220vh'}}>
+        <form className="bg-slate-800 p-4 mx-3 mt-40 rounded-xl" onSubmit={submit}>
           <div className="h-96 md:h-64 overflow-auto customScrollbar">
             {inputField.length === 0 ? <div className="text-slate-100 text-center text-2xl">No input fields please add inputs fields</div>
               :
               inputField.map((input, index) => {
                 return (
-                    <div className="my-2 md:my-10">
+                    <div className="my-2 md:my-10 px-1" key={index}>
                       <h1 className="text-indigo-200 text-2xl text-center">Enter new user details</h1>
                       <div className="md:flex md:space-x-4 my-5">
                         <div className="grid grid-cols-2 my-8 md:my-0">
-                          <label className="text-slate-200 place-self-center mr-10">Name</label>
+                          <label className="text-slate-200 justify-self-center mt-2 mr-10">Name</label>
                           <input name="name" type="text" value={input.name} onChange={event => handleForm(index, event)}
                             className="px-3 py-1 text-slate-100 bg-transparent border-b-2 border-b-indigo-400 focus:outline-none caret-slate-300"
                           />
                         </div>
                         <div className="grid grid-cols-2 my-8 md:my-0">
-                          <label className="text-slate-200 place-self-center mr-10">Email</label>
+                          <label className="text-slate-200 justify-self-center mt-2 mr-10">Email</label>
                           <input name="email" type="email" value={input.email} onChange={event => handleForm(index, event)}
                             className="px-3 py-1 text-slate-100 bg-transparent border-b-2 border-b-indigo-400 focus:outline-none caret-slate-300" />
                         </div>
                         <div className="grid grid-cols-2 my-8 md:my-0">
-                          <label className="text-slate-200 place-self-center mr-10">Phone</label>
+                          <label className="text-slate-200 justify-self-center mt-2 mr-10">Phone</label>
                           <input name="phone" type="number" value={input.phone} onChange={event => handleForm(index, event)}
                             className="px-3 py-1 text-slate-100 bg-transparent border-b-2 border-b-indigo-400 focus:outline-none caret-slate-300" />
                         </div>
@@ -81,7 +81,7 @@ function Form() {
 
         <div className="mt-20 mb-28">
           <h1 className="text-indigo-400 bg-slate-800 p-3 rounded-xl mx-6 text-3xl text-center my-5">Data</h1>
-          <div className="bg-slate-200 p-5 h-96 overflow-auto rounded-lg">
+          <div className="bg-slate-200 p-5 h-96 overflow-auto rounded-lg mx-4">
             {data.length === 0 ? <div className="my-5 text-2xl text-slate-800 text-center">Add Some Data to see</div>
               :
               data.map((data, index) => {

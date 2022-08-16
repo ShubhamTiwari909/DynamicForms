@@ -29,7 +29,7 @@
 
 @media screen and (max-width:500px) {
     .Home {
-        height: 150vh;
+        height: 200vh;
         background-image: url('https://wallpaperaccess.com/full/459202.jpg')
     }
 }
