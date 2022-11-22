@@ -19,18 +19,24 @@ function Edit() {
     setDepartment(editData.department)
     setEmail(editData.email)
     setAvailable(editData.availability)
-  }, [])
+  }, [editData])
 
 
   const handleEdit = (e) => {
     e.preventDefault();
-    Employees.find((employee, i) => {
-      if (employee.id === Number(id)) {
-        Employees[i] = { id: Number(id), name: name, esignation: designation, department: department, email: email, availability: available };
-        return true; // stop searching
-      }
-    });
-    history("/");
+    if(name !== "" && email !== "" && designation !== "" && department !== "" && available !== ""){
+      Employees.find((employee, i) => {
+        if (employee.id === Number(id)) {
+          Employees[i] = { id: Number(id), name: name, esignation: designation, department: department, email: email, availability: available };
+          return true; // stop searching
+        }
+        else return false;
+      });
+      history("/");
+    }
+    else{
+      alert("Please Fill the fields")
+    }
   }
   return (
     <div className="mt-10 flex items-center justify-center">
@@ -39,17 +45,17 @@ function Edit() {
           <div className="flex flex-col gap-3 my-6">
             <label className="text-white">Name</label>
             <input type="text" className="border-none rounded-lg px-3 py-2 text-slate-800"
-              value={name} onChange={(e) => setName(e.target.value)} />
+              value={name} onChange={(e) => setName(e.target.value)}  required/>
           </div>
           <div className="flex flex-col gap-3  my-6">
             <label className="text-white">Designation</label>
             <input type="text" className="border-none rounded-lg px-3 py-2 text-slate-800"
-              value={designation} onChange={(e) => setDesignation(e.target.value)} />
+              value={designation} onChange={(e) => setDesignation(e.target.value)}  required/>
           </div>
           <div className="flex flex-col gap-3 my-6">
             <label className="text-white">Department</label>
             <select type="text" className="border-none rounded-lg px-3 py-2 text-slate-800"
-              value={department} onChange={(e) => setDepartment(e.target.value)}>
+              value={department} onChange={(e) => setDepartment(e.target.value)} required>
               <option value="Deployment">Deployment</option>
               <option value="Marketing">Marketing</option>
               <option value="Management">Management</option>
@@ -61,14 +67,14 @@ function Edit() {
           <div className="flex flex-col gap-3 my-6">
             <label className="text-white">Email</label>
             <input type="email" className="border-none rounded-lg px-3 py-2 text-slate-800"
-              value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+              value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"  required/>
           </div>
           <div className="flex flex-col gap-3 my-6">
             <label className="text-white">Availability</label>
             <select type="checkbox" className="border-none rounded-lg px-3 py-2 text-slate-800"
               value={available} onChange={(e) => {
                 setAvailable(e.target.value)
-              }}>
+              }} required>
               <option value="Available">Available</option>
               <option value="Not Available">Not Available</option>
             </select>
