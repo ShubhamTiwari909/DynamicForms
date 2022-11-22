@@ -1,26 +1,23 @@
-import './App.css';
-import {Routes,Route} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Form from './components/Form'
-import Signup from './components/Signup'
-import Signin from './components/Signin'
-import ForgotPassword from './components/ForgotPassword'
-import Footer from './components/Footer'
+import React from 'react'
+import "./App.css"
+import {Routes,Route} from 'react-router-dom'
+import Home from './components/Home'
+import Create from './components/Create'
+import Edit from './components/Edit'
+import Logo from './components/images/logo.png'
 function App() {
   return (
-    <div className="">
-      <Navbar />
+    <div>
+      <div className='py-3 px-5 mb-4 flex justify-center'>
+        <img alt="logo" src={Logo} />
+      </div>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/form" element={<Form />} />
-        <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/signin" element={<Signin />} />
-        <Route exact path="/changePassword" element={<ForgotPassword />} />
+        <Route exact path="/create" element={<Create />} />
+        <Route exact path="/edit/:id" element={<Edit />} />
       </Routes>
-      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
